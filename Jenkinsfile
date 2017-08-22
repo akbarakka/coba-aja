@@ -18,7 +18,16 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        echo 'Deploy sukses'
+        parallel(
+          "Deploy Production": {
+            echo 'Deploy sukses'
+            
+          },
+          "Deploy Staging": {
+            echo 'Deploy staging sukses'
+            
+          }
+        )
       }
     }
   }
